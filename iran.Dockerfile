@@ -7,10 +7,11 @@ RUN cd /root
 RUN apt-get update
 RUN apt upgrade -y
 RUN apt install wget iptables unzip wget tzdata gzip -y
-RUN wget https://github.com/jpillora/chisel/releases/download/v1.9.1/chisel_1.9.1_linux_amd64.gz
-RUN gzip -d chisel_1.9.1_linux_amd64.gz
-RUN chmod +x ./chisel_1.9.1_linux_amd64
+RUN wget https://github.com/jpillora/chisel/releases/download/v$VERSION/chisel_$VERSION_linux_amd64.gz
+RUN gzip -d chisel_$VERSION_linux_amd64.gz
+RUN chmod +x ./chisel_$VERSION_linux_amd64
 
+ENV VERSION=1.9.1
 ENV CONFIG_PORT=70000
 ENV EXP_PORT=80
 ENV MODE=client
